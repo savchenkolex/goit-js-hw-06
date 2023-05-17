@@ -5,7 +5,7 @@ const outputEl = document.querySelector("#name-output");
 inputEl.addEventListener("input", keyboardHandler);
 
 function keyboardHandler(event) {
-    if (trim(inputEl.value)){
+    if (event.currentTarget.value.trim()){
     outputEl.textContent = event.currentTarget.value;
     } else {
     outputEl.textContent = "Anonymous";

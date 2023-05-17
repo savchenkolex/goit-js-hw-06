@@ -11,15 +11,15 @@ inputEl.addEventListener("blur", checkDataLengthInput);
 
 function checkDataLengthInput(event) {
 
-  const classes = event.originalTarget.classList;
-  const characters = Number(event.originalTarget.dataset.length);
+  const classes = event.currentTarget.classList;
+  const characters = Number(event.currentTarget.dataset.length);
 
   if (inputEl.textLength === characters ) {
-      classes.value === "invalid"
+      classes.contains("invalid")
       ? classes.replace("invalid", "valid")
       : classes.add("valid");
   } else {
-    classes.value === "valid"
+    classes.contains("valid")
       ? classes.replace("valid", "invalid")
       : classes.add("invalid");
   }
