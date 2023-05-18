@@ -14,10 +14,12 @@ function checkDataLengthInput(event) {
   const classes = event.currentTarget.classList;
   const characters = Number(event.currentTarget.dataset.length);
 
-  if (inputEl.textLength === characters ) {
-      classes.contains("invalid")
-      ? classes.replace("invalid", "valid")
-      : classes.add("valid");
+  // if (inputEl.textLength === characters ) {
+    // "textLength" property doesn't work with chrome
+  if (inputEl.value.length === characters ) {
+    classes.contains("invalid")
+    ? classes.replace("invalid", "valid")
+    : classes.add("valid");
   } else {
     classes.contains("valid")
       ? classes.replace("valid", "invalid")
