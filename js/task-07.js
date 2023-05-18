@@ -4,6 +4,7 @@ const inputRangeEl = document.querySelector("#font-size-control");
 
 inputRangeEl.addEventListener("input", inputRangeElHendler);
 
-function inputRangeElHendler(event){    
-    document.querySelector("#text").style.fontSize = `${event.originalTarget.valueAsNumber}px`;
+function inputRangeElHendler(event){
+    const fontSize = Number(event.currentTarget.value);    
+    document.querySelector("#text").style.fontSize = `${fontSize}px`;
 }
