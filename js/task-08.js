@@ -7,7 +7,7 @@
 
 const formEl = document.querySelector(".login-form");
 
-console.log(formEl.addEventListener("submit", submitHendler));
+formEl.addEventListener("submit", submitHendler);
 
 function submitHendler(event) {
     event.preventDefault();

@@ -12,17 +12,18 @@ inputEl.addEventListener("blur", checkDataLengthInput);
 function checkDataLengthInput(event) {
 
   const classes = event.currentTarget.classList;
-  const characters = Number(event.currentTarget.dataset.length);
+  const planLength = Number(event.currentTarget.dataset.length);
+  const factLength = inputEl.value.length;
 
-  // if (inputEl.textLength === characters ) {
-    // "textLength" property doesn't work with chrome
-  if (inputEl.value.length === characters ) {
-    classes.contains("invalid")
-    ? classes.replace("invalid", "valid")
-    : classes.add("valid");
-  } else {
-    classes.contains("valid")
-      ? classes.replace("valid", "invalid")
-      : classes.add("invalid");
-  }
+  factLength === planLength?setValid(classes):setInvalid(classes);
+}
+
+function setValid(classlistlink) {
+  classlistlink.add("valid");
+  classlistlink.remove("invalid");
+}
+
+function setInvalid(classlistlink){
+  classlistlink.add("invalid");
+  classlistlink.remove("valid");
 }

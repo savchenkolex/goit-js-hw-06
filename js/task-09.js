@@ -5,6 +5,8 @@ function getRandomHexColor() {
 }
 
 const buttonEl = document.querySelector(".change-color");
+const bodyEl = document.querySelector("body");
+const spanEl = document.querySelector(".color");
 
 buttonEl.addEventListener("click", buttonChangeColorHendler);
 
@@ -12,7 +14,7 @@ function buttonChangeColorHendler(event){
   const nextColor = getRandomHexColor();
   if(event){
 
-    document.querySelector("body").style.backgroundColor = nextColor;
-    document.querySelector(".color").textContent = nextColor;
+    bodyEl.style.backgroundColor = nextColor;
+    spanEl.textContent = nextColor;
   }
 }

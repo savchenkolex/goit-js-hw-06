@@ -11,7 +11,10 @@ const targetBoxEl = document.querySelector("#boxes");
 controlsEl.addEventListener('click',createBoxes)
 
 function createBoxes(event) {
-  let amount = event.currentTarget.firstElementChild.valueAsNumber;
+  const inputEl = event.currentTarget.firstElementChild;
+  let amount = Number(inputEl.value);
+  const minVal = Number(inputEl.min); 
+  const maxVal = Number(inputEl.max); 
   
   if (event.target.type === "button") {
     const buttonEl = event.target;
@@ -20,12 +23,12 @@ function createBoxes(event) {
       targetBoxEl.innerHTML = "";
     } else if (buttonEl.dataset.hasOwnProperty("create")){
     
-      if (amount < 1) {
+      if (amount < minVal) {
         const newEl = document.createElement("p");
         newEl.textContent = "Nothing to create. The number of elements must be greater then zero";
         targetBoxEl.append(newEl);
-      } else if (amount > 100){
-        amount = 100;
+      } else if (amount > maxVal){
+        amount = maxVal;
       } 
 
       let i = 0;
@@ -43,6 +46,7 @@ function createBoxes(event) {
         // demension += 10;
       }
       targetBoxEl.append(...newBoxesArr);
+      // inputEl.value = "";
     }
   }
 }
